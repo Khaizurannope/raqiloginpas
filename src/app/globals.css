@@ -1,21 +1,45 @@
+/* Tailwind Directives */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* Import custom fonts and reset styles */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+
+/* Set the body and HTML to take full height */
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* Flexbox to center the content */
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Ensures full viewport height */
+  background-image: var(--lightBg);
+}
+
+.dark body {
+  background-image: var(--darkBg);
+}
+
+/* Custom styles for register and login form container */
+.container {
+  width: 100%;
+  max-width: 400px; /* Adjust the width of the form container */
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Aturan dark mode */
+@layer utilities {
+  .dark {
+    background-color: #1a202c;
+    color: white;
+  }
 }
